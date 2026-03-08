@@ -12,6 +12,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.bluestarenterprises.co.in'),
   title: 'BLUESTAR ENTERPRISES | Leading Nickel Alloy & Specialty Metals Supplier India',
   description: 'BLUESTAR ENTERPRISES - Leading supplier & trader of nickel alloys, Hastelloy, Inconel, Monel, Titanium, Duplex Steel & specialty metal products. Serving industries across India since 2011.',
   keywords: 'nickel alloy supplier, hastelloy supplier india, inconel supplier, industrial alloys supplier india, monel 400 supplier, titanium supplier pune, duplex steel supplier',
@@ -22,6 +23,34 @@ export const metadata: Metadata = {
     siteName: 'Bluestar Enterprises',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Bluestar Enterprises Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'BLUESTAR ENTERPRISES | Nickel Alloy & Specialty Metals Supplier',
+    description: 'Leading supplier of Hastelloy, Inconel, Monel, Titanium & specialty metals in India since 2011.',
+    images: ['/images/logo.png'],
+  },
+  alternates: {
+    canonical: 'https://www.bluestarenterprises.co.in',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
