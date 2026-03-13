@@ -86,7 +86,7 @@ export default function ProductDetailPage() {
               <span>/</span>
               <span className="text-white font-medium">{product.name}</span>
             </div>
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white">{product.name}</h1>
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white break-words">{product.name}</h1>
             <p className="text-primary-200/80 mt-2 text-lg break-words">{product.grade}</p>
           </motion.div>
         </div>
@@ -172,7 +172,7 @@ export default function ProductDetailPage() {
                 <h3 className="font-heading font-semibold text-primary text-sm uppercase tracking-wider mb-3">Available Forms</h3>
                 <div className="flex flex-wrap gap-2">
                   {product.forms.map((f) => (
-                    <span key={f} className="px-3 py-1.5 bg-white border border-gray-200 rounded-xl text-sm text-secondary-600 font-medium shadow-sm">{f}</span>
+                    <span key={f} className="px-3 py-1.5 bg-white border border-gray-200 rounded-xl text-sm text-secondary-600 font-medium shadow-sm break-words max-w-full">{f}</span>
                   ))}
                 </div>
               </div>
@@ -180,8 +180,8 @@ export default function ProductDetailPage() {
 
             {/* Product info */}
             <motion.div variants={fadeUp} custom={1}>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary mb-2">{product.name}</h2>
-              <span className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-lg text-sm font-semibold">{product.grade}</span>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary mb-2 break-words">{product.name}</h2>
+              <span className="inline-block px-3 py-1 bg-accent/10 text-accent rounded-lg text-sm font-semibold break-words max-w-full">{product.grade}</span>
               <p className="text-secondary-500 leading-relaxed mt-5 text-base lg:text-lg">{product.description}</p>
 
               <div className="mt-8">
@@ -202,7 +202,7 @@ export default function ProductDetailPage() {
                 <h3 className="font-heading font-semibold text-primary text-lg mb-4">Applications</h3>
                 <div className="flex flex-wrap gap-2">
                   {product.applications.map((app) => (
-                    <span key={app} className="px-3 py-1.5 bg-primary/5 border border-primary/10 rounded-xl text-sm text-primary font-medium">{app}</span>
+                    <span key={app} className="px-3 py-1.5 bg-primary/5 border border-primary/10 rounded-xl text-sm text-primary font-medium break-words max-w-full">{app}</span>
                   ))}
                 </div>
               </div>
@@ -241,14 +241,37 @@ export default function ProductDetailPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeUp} custom={0}>
             <h2 className="font-heading text-2xl font-bold text-primary mb-8">Product Specifications</h2>
-            <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-              <table className="w-full min-w-[560px] text-sm">
+            <div className="sm:hidden space-y-3">
+              <div className="rounded-xl border border-gray-200 bg-surface p-3">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Product Name</p>
+                <p className="text-sm text-secondary-600 break-words">{product.name}</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-surface p-3">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Grade / Standard</p>
+                <p className="text-sm text-secondary-600 break-words">{product.grade}</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-surface p-3">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Available Forms</p>
+                <p className="text-sm text-secondary-600 break-words">{product.forms.join(', ')}</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-surface p-3">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Applications</p>
+                <p className="text-sm text-secondary-600 break-words">{product.applications.join(', ')}</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-surface p-3">
+                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Key Features</p>
+                <p className="text-sm text-secondary-600 break-words">{product.features.join(', ')}</p>
+              </div>
+            </div>
+
+            <div className="hidden sm:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+              <table className="w-full min-w-[640px] text-sm">
                 <tbody>
-                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Product Name</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.name}</td></tr>
-                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Grade / Standard</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.grade}</td></tr>
-                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Available Forms</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.forms.join(', ')}</td></tr>
-                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Applications</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.applications.join(', ')}</td></tr>
-                  <tr><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Key Features</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.features.join(', ')}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Product Name</td><td className="px-6 py-4 text-secondary-600 break-words">{product.name}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Grade / Standard</td><td className="px-6 py-4 text-secondary-600 break-words">{product.grade}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Available Forms</td><td className="px-6 py-4 text-secondary-600 break-words">{product.forms.join(', ')}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Applications</td><td className="px-6 py-4 text-secondary-600 break-words">{product.applications.join(', ')}</td></tr>
+                  <tr><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Key Features</td><td className="px-6 py-4 text-secondary-600 break-words">{product.features.join(', ')}</td></tr>
                 </tbody>
               </table>
             </div>
@@ -266,15 +289,15 @@ export default function ProductDetailPage() {
           </div>
           <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {relatedProducts.map((p, i) => (
-              <motion.div key={p.slug} variants={fadeUp} custom={i}>
+              <motion.div key={p.slug} variants={fadeUp} custom={i} className="min-w-0">
                 <Link href={`/products/${p.slug}`} className="group block bg-white rounded-2xl overflow-hidden card-hover border border-gray-100 hover:border-primary/10">
                   <div className="relative h-40 overflow-hidden">
                     <Image src={p.image} alt={p.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-heading font-semibold text-primary text-base group-hover:text-accent transition-colors">{p.name}</h3>
-                    <span className="text-xs text-secondary-400">{p.grade}</span>
+                  <div className="p-4 min-w-0">
+                    <h3 className="font-heading font-semibold text-primary text-base group-hover:text-accent transition-colors break-words">{p.name}</h3>
+                    <span className="block text-xs text-secondary-400 break-words">{p.grade}</span>
                   </div>
                 </Link>
               </motion.div>
