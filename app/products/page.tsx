@@ -58,8 +58,8 @@ export default function ProductsPage() {
       {/* Search & Filter */}
       <div className="sticky top-16 lg:top-[72px] z-30 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-4">
-            <div className="relative flex-1 max-w-md">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-4">
+            <div className="relative w-full flex-1 max-w-md">
               <FiSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-secondary-300" size={17} />
               <input
                 type="text"
@@ -99,20 +99,20 @@ export default function ProductsPage() {
           ) : view === 'grid' ? (
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {filtered.map((p, i) => (
-                <motion.div key={p.slug} variants={fadeUp} custom={i}>
-                  <Link href={`/products/${p.slug}`} className="group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(28,43,90,0.12)]">
+                <motion.div key={p.slug} variants={fadeUp} custom={i} className="min-w-0">
+                  <Link href={`/products/${p.slug}`} className="group block min-w-0 bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(28,43,90,0.12)]">
                     <div className="relative h-44 overflow-hidden">
                       <Image src={p.image} alt={p.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
-                      <span className="absolute bottom-3 left-4 text-[11px] text-white/80 font-medium">{p.grade}</span>
+                      <span className="absolute bottom-3 left-4 right-4 text-[11px] text-white/80 font-medium line-clamp-1">{p.grade}</span>
                       {/* Quick action overlay */}
-                      <div className="absolute inset-0 bg-primary/60 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 bg-primary/60 hidden sm:flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span className="px-3 py-1.5 bg-white rounded-lg text-xs font-semibold text-primary shadow-sm">View Details</span>
                         <span className="px-3 py-1.5 bg-[#25D366] rounded-lg text-xs font-semibold text-white shadow-sm">WhatsApp</span>
                       </div>
                     </div>
                     <div className="p-5">
-                      <h3 className="font-heading font-semibold text-primary text-lg mb-2 group-hover:text-accent transition-colors">{p.name}</h3>
+                      <h3 className="font-heading font-semibold text-primary text-lg mb-2 group-hover:text-accent transition-colors break-words">{p.name}</h3>
                       <p className="text-secondary-400 text-sm line-clamp-2 mb-3">{p.description}</p>
                       <span className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-2.5 transition-all">
                         View Details <FiArrowRight size={14} />
@@ -125,14 +125,14 @@ export default function ProductsPage() {
           ) : (
             <motion.div variants={stagger} className="space-y-4">
               {filtered.map((p, i) => (
-                <motion.div key={p.slug} variants={fadeUp} custom={i}>
+                <motion.div key={p.slug} variants={fadeUp} custom={i} className="min-w-0">
                   <Link href={`/products/${p.slug}`} className="group flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden card-hover border border-gray-100 hover:border-primary/10">
-                    <div className="relative w-full sm:w-48 h-40 sm:h-auto flex-shrink-0">
+                    <div className="relative w-full sm:w-48 h-40 sm:h-40 flex-shrink-0">
                       <Image src={p.image} alt={p.name} fill className="object-cover" />
                     </div>
-                    <div className="p-5 flex-1">
-                      <h3 className="font-heading font-semibold text-primary text-lg group-hover:text-accent transition-colors">{p.name}</h3>
-                      <p className="text-accent text-sm font-medium mb-2">{p.grade}</p>
+                    <div className="p-5 flex-1 min-w-0">
+                      <h3 className="font-heading font-semibold text-primary text-lg group-hover:text-accent transition-colors break-words">{p.name}</h3>
+                      <p className="text-accent text-sm font-medium mb-2 break-words">{p.grade}</p>
                       <p className="text-secondary-400 text-sm line-clamp-2">{p.description}</p>
                       <div className="flex flex-wrap gap-2 mt-3">
                         {p.applications.slice(0, 3).map((a) => (

@@ -108,15 +108,15 @@ export default function ServicesPage() {
                 <motion.div key={item.step} variants={fadeUp} custom={i + 1} className="text-center relative group">
                   {/* Step circle */}
                   <div className="relative mx-auto mb-6">
-                    <div className={`w-[120px] h-[120px] bg-gradient-to-br ${item.color} rounded-3xl rotate-45 flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:scale-105 transition-all duration-500`}>
+                    <div className={`w-[104px] h-[104px] sm:w-[120px] sm:h-[120px] bg-gradient-to-br ${item.color} rounded-3xl rotate-45 flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:scale-105 transition-all duration-500`}>
                       <div className="-rotate-45 text-center">
-                        <span className="text-3xl block mb-0.5">{item.icon}</span>
+                        <span className="text-[26px] sm:text-3xl block mb-0.5">{item.icon}</span>
                         <span className="text-white/80 text-[11px] font-bold tracking-wider">STEP</span>
-                        <span className="text-white text-xl font-heading font-bold block leading-none">{item.step}</span>
+                        <span className="text-white text-lg sm:text-xl font-heading font-bold block leading-none">{item.step}</span>
                       </div>
                     </div>
                     {/* Pulse ring */}
-                    <div className={`absolute inset-0 w-[120px] h-[120px] mx-auto bg-gradient-to-br ${item.color} rounded-3xl rotate-45 opacity-0 group-hover:opacity-20 group-hover:scale-125 transition-all duration-500`} />
+                    <div className={`absolute inset-0 w-[104px] h-[104px] sm:w-[120px] sm:h-[120px] mx-auto bg-gradient-to-br ${item.color} rounded-3xl rotate-45 opacity-0 group-hover:opacity-20 group-hover:scale-125 transition-all duration-500`} />
                   </div>
 
                   <h3 className="font-heading font-bold text-primary text-lg mb-2">{item.title}</h3>

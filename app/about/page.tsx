@@ -74,7 +74,7 @@ export default function AboutPage() {
             </motion.div>
             <motion.div variants={fadeUp} custom={1}>
               <div className="rounded-2xl overflow-hidden shadow-xl">
-                <Image src="/images/overview_machinery.jpg" alt="Bluestar facility" width={600} height={400} className="w-full h-[400px] object-cover" />
+                <Image src="/images/overview_machinery.jpg" alt="Bluestar facility" width={600} height={400} className="w-full h-[260px] sm:h-[320px] lg:h-[400px] object-cover" />
               </div>
             </motion.div>
           </div>
@@ -171,7 +171,7 @@ export default function AboutPage() {
                   }`} />
 
                   {/* Content card */}
-                  <div className={`ml-14 md:ml-0 md:w-[calc(50%-40px)] ${isLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                  <div className={`ml-14 md:ml-0 md:w-[calc(50%-2.5rem)] ${isLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
                     <div className="bg-white rounded-2xl p-6 shadow-lg shadow-primary/[0.04] border border-gray-100 hover:shadow-xl hover:border-primary/10 transition-all duration-300 group relative overflow-hidden">
                       {/* Accent bar */}
                       <div className={`absolute top-0 ${isLeft ? 'md:right-0' : 'left-0'} left-0 w-1 md:w-1 h-full bg-gradient-to-b from-primary via-accent to-gold rounded-full`} />

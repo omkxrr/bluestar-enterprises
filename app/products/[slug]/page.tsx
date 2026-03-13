@@ -79,7 +79,7 @@ export default function ProductDetailPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="flex items-center gap-2 text-sm text-primary-200/80 mb-4">
+            <div className="flex flex-wrap items-center gap-2 text-sm text-primary-200/80 mb-4">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <Link href="/products" className="hover:text-white transition-colors">Products</Link>
@@ -87,7 +87,7 @@ export default function ProductDetailPage() {
               <span className="text-white font-medium">{product.name}</span>
             </div>
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white">{product.name}</h1>
-            <p className="text-primary-200/80 mt-2 text-lg">{product.grade}</p>
+            <p className="text-primary-200/80 mt-2 text-lg break-words">{product.grade}</p>
           </motion.div>
         </div>
       </section>
@@ -101,7 +101,7 @@ export default function ProductDetailPage() {
             <motion.div variants={fadeUp} custom={0}>
               <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white relative group">
                 {/* Main image with crossfade */}
-                <div className="relative w-full h-[350px] lg:h-[450px]">
+                <div className="relative w-full h-[260px] sm:h-[320px] lg:h-[450px]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeIndex}
@@ -157,7 +157,7 @@ export default function ProductDetailPage() {
                     <button
                       key={idx}
                       onClick={() => setActiveIndex(idx)}
-                      className={`flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-xl overflow-hidden border-2 transition-all ${
+                      className={`flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl overflow-hidden border-2 transition-all ${
                         idx === activeIndex
                           ? 'border-accent shadow-md ring-2 ring-accent/30'
                           : 'border-gray-200 opacity-60 hover:opacity-100'
@@ -209,13 +209,13 @@ export default function ProductDetailPage() {
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <a href={`https://wa.me/${COMPANY.whatsapp}?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#20BD5A] transition-all shadow-lg shadow-green-500/20 hover:-translate-y-0.5">
+                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#20BD5A] transition-all shadow-lg shadow-green-500/20 hover:-translate-y-0.5">
                   <FaWhatsapp size={20} /> Inquire on WhatsApp
                 </a>
-                <Link href="/enquiry" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary-600 text-white font-semibold rounded-xl hover:from-primary-400 hover:to-primary transition-all shadow-lg shadow-primary/15 hover:-translate-y-0.5">
+                <Link href="/enquiry" className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary-600 text-white font-semibold rounded-xl hover:from-primary-400 hover:to-primary transition-all shadow-lg shadow-primary/15 hover:-translate-y-0.5">
                   <FiMessageCircle size={18} /> Request Quote
                 </Link>
-                <a href={`tel:${COMPANY.phone[0]}`} className="inline-flex items-center gap-2 px-6 py-3 bg-white text-secondary-700 font-semibold rounded-xl hover:bg-gray-50 transition-all border border-gray-200 hover:-translate-y-0.5">
+                <a href={`tel:${COMPANY.phone[0]}`} className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 bg-white text-secondary-700 font-semibold rounded-xl hover:bg-gray-50 transition-all border border-gray-200 hover:-translate-y-0.5">
                   <FiPhone size={18} /> Call Us
                 </a>
               </div>
@@ -242,13 +242,13 @@ export default function ProductDetailPage() {
           <motion.div variants={fadeUp} custom={0}>
             <h2 className="font-heading text-2xl font-bold text-primary mb-8">Product Specifications</h2>
             <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-              <table className="w-full text-sm">
+              <table className="w-full min-w-[560px] text-sm">
                 <tbody>
-                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Product Name</td><td className="px-6 py-4 text-secondary-600">{product.name}</td></tr>
-                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Grade / Standard</td><td className="px-6 py-4 text-secondary-600">{product.grade}</td></tr>
-                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Available Forms</td><td className="px-6 py-4 text-secondary-600">{product.forms.join(', ')}</td></tr>
-                  <tr className="border-b border-gray-100"><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Applications</td><td className="px-6 py-4 text-secondary-600">{product.applications.join(', ')}</td></tr>
-                  <tr><td className="px-6 py-4 font-semibold text-primary bg-surface w-48">Key Features</td><td className="px-6 py-4 text-secondary-600">{product.features.join(', ')}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Product Name</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.name}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Grade / Standard</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.grade}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Available Forms</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.forms.join(', ')}</td></tr>
+                  <tr className="border-b border-gray-100"><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Applications</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.applications.join(', ')}</td></tr>
+                  <tr><td className="px-3 sm:px-6 py-4 font-semibold text-primary bg-surface w-36 sm:w-48">Key Features</td><td className="px-3 sm:px-6 py-4 text-secondary-600 break-words">{product.features.join(', ')}</td></tr>
                 </tbody>
               </table>
             </div>
